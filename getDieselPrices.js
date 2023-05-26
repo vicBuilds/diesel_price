@@ -1,12 +1,13 @@
 const axios = require("axios");
+require("dotenv").config();
+// Config for the headers and the URL for the API (souce: Rapid API)
 
 const options = {
   method: "GET",
-  url: "https://daily-petrol-diesel-lpg-cng-fuel-prices-in-india.p.rapidapi.com/v1/fuel-prices/today/india/states",
+  url: process.env.URL,
   headers: {
-    "X-RapidAPI-Key": "34c3ef81b4msh4299617d854dc7bp10d4abjsn880b1f97eee6",
-    "X-RapidAPI-Host":
-      "daily-petrol-diesel-lpg-cng-fuel-prices-in-india.p.rapidapi.com",
+    "X-RapidAPI-Key": process.env.KEY,
+    "X-RapidAPI-Host": process.env.HOST,
   },
 };
 
@@ -35,7 +36,7 @@ async function fetchAndSendDieselPricesfromAPI() {
     // Lets send the data to the end point
     const urlToSendData = "https://en03k0l91q0m9c.x.pipedream.net/";
     let isDataSend = await axios.post(urlToSendData, dataToBeSent);
-    console.log(isDataSend);
+    //console.log(isDataSend);
     console.log("State wise Diesel Prices sent successfully.");
   } catch (error) {
     console.error("The are some error sending the data", error);
