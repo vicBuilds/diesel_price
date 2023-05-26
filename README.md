@@ -1,5 +1,5 @@
 # diesel_price
-This is a project for a microservice to fetch diesel price from all the state and UT in India and send to a endpoint.
+This is a project a microservice to fetch diesel price from all the state and UT in India and send to a endpoint.
 
 ### Important Note:
 1. My limited request to fetch all states data got exhausted while testing so I was forced to fetch only a states data to demonstate the proper working of the app. 
