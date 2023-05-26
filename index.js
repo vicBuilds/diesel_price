@@ -14,12 +14,15 @@ const options = {
 async function fetchAndSendDieselPricesfromAPI() {
   try {
     let response = await axios.request(options);
-    // The data is in the key response.data.statePrices array
+
+    /* ****** Important Node: Sorry I just exceeded the mothly limit for 30 calls for the api which was for free.
+     
+     // The data is in the key response.data.statePrices array
     // Lets try to keep only the diesel prices and send
 
-    let fullData = response.data.statePrices;
-
     // Lets filter the diesel prices only
+    
+    let fullData = response.data.statePrices;
 
     let dataToBeSent = fullData.map((element) => {
       let temp = { ...element, dieselPrice: element.fuel.diesel };
@@ -34,17 +37,24 @@ async function fetchAndSendDieselPricesfromAPI() {
 
     // Now the data only has diesel in the fuel section
 
-    //console.log(dataToBeSent);
+     */
+
+    //So i have rewrite the code to fetch only data of a state for the time being. Free limit got exhaustdd while testing
+
+    let dataToBeSent = response.data;
+    dataToBeSent.fuel = dataToBeSent.fuel.diesel;
+
+    console.log(dataToBeSent);
 
     // Lets send the data to the end point
     const urlToSendData = "https://en03k0l91q0m9c.x.pipedream.net/";
     let isDataSend = await axios.post(urlToSendData, dataToBeSent);
     //console.log(isDataSend);
 
-    // console.log("State wise Diesel Prices sent successfully.");
+    console.log("State wise Diesel Prices sent successfully.");
     return { message: "Diesel prices sent successfully." };
   } catch (error) {
-    //console.error("The are some error sending the data", error);
+    console.error("The are some error sending the data", error);
     return { message: "Diesel prices sent successfully." };
   }
 }
