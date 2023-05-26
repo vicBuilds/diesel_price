@@ -12,6 +12,6 @@ I rewrote a major part of the code to change the URL and to handle the response 
 ## Deployed at: 
 https://raspberry-yak-cape.cyclic.app
 
-# A note of Special Thanks: Munish Sir for believing in me when i myself was not.
+# A note of Special Thanks: Munish Sir for believing in me when i myself did not.
 
 Developed by: Victor Mitra
